@@ -1,0 +1,8 @@
+{
+  "name": "notikube",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "mjolnic-bootstrap-colorpicker": "~2.1.2"
+  }
+}
