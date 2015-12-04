@@ -15,11 +15,11 @@ var runningPortNumber = process.env.PORT;
 
 var Cylon = require('cylon');
 
-var ledColor = "000000";
+var ledColor = "FFFFFF";
 
 var robot = Cylon.robot({
 	connections: {
-	    arduino: { adaptor: 'firmata', port: '/dev/tty.usbmodem1421' }
+	    arduino: { adaptor: 'firmata', port: '/dev/tty.usbmodem1411' }
 	  },
 	  devices: {
 	    leds: { driver: 'rgb-led', redPin: 3, greenPin: 5, bluePin: 6 },
@@ -62,6 +62,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('set_color', function(data, fn){
 		console.log(data);
 		ledColor = data.msg;
+		io.sockets.emit('color_seted', {msg:ledColor});
 		fn();//call the client back to clear out the field
 	});
 

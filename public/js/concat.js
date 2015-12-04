@@ -7,6 +7,11 @@ var app = app || {};
 
 // shortcut for document.ready
 $(function(){
+
+		//SOCKET STUFF
+	socket.on("color_seted", function(data){
+		$('#blast').val(data.msg);
+	});
 	
 	$('body').on('change','#blast',function(){
 		var color = $(this).val();
